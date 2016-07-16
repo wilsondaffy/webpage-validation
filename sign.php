@@ -25,6 +25,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $fnameErr = "Please fill your First Name";
   } else {
     $fname = test_input($_POST["fname"]);
+     if(!preg_match('/^[a-z]-[A-Z]$/', $_POST['fname'], $fname))
+    {
+      $fnameErr = 'Please enter Correct name';
+    }  
   }
     if (empty($_POST["lname"])) {
     $lnameErr = "Please fill your Last Name";
